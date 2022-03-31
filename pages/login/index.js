@@ -16,7 +16,10 @@ function LoginPage() {
       headers: {
         "Content-Type": "application/json",
       },
-    })
+    }).then((response) => {
+      if (response.ok) {
+        router.push('/profile')
+    }})
     .catch(err => console.log(err));
     // const response = await fetch("http://localhost:5000/login", {
     //   method: "POST",
@@ -28,10 +31,6 @@ function LoginPage() {
     //   },
     // })
     // .catch(err => console.log(err));
-    
-    const data = await response.headers;
-    console.log(data)
-    console.log(data);
   }
   return (
     <>

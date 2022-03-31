@@ -24,14 +24,7 @@
 }
 
 .bio {
-    transition: 0.3s;
     border-radius: 5px;
     padding: 0% 2% 0% 2%;
-}
-
-.bio:hover {
-    background-color: grey;
-    opacity: 0.6;
-    cursor: text;
 }
 

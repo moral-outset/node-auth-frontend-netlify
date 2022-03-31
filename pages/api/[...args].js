@@ -1,17 +1,8 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
-// // Create proxy instance outside of request handler function to avoid unnecessary re-creation
-// export default createProxyMiddleware(
-//   {
-//   target: "http://localhost:5000", //the data server
-//   pathRewrite: {'^/api' : ''},
-//   changeOrigin: true,
-//   cookieDomainRewrite: "localhost",
-//   ws: true,
-//   secure: false,
-//   cookieDomainRewrite: "localhost",
-//   debug: true,
-// });
+//To do:
+//Promisify request such that it will return a resolve/reject; this will allow api to resolve
+//Recreate [HPM] Upgrading to Websocket problem and figure out exactly how HPM works :)
 
 //this is needed!!
 export const config = {
@@ -22,17 +13,18 @@ export const config = {
 var proxyOptions = {
   target: 'http://localhost:5000',
   pathRewrite: {['^/api'] : ''},
-  changeOrigin: true,
-  ws: true,
+  changeOrigin: false,
+  ws: false,
   secure: false,
   cookieDomainRewrite: 'localhost',
   debug: true,
+  onProxyRes: () => console.log('proxy resolved!'),
   // onProxyReq: (proxyReq, req) => {
   //     Object.keys(req.headers).forEach(function (key) {
   //       proxyReq.setHeader(key, req.headers[key]);
   //     });
   //   },
-  // onProxyRes: (proxyRes, req, res) => {
+  // onProxyRes: ((proxyRes, req, res) => {
   //   const sc = proxyRes.headers['set-cookie'];
   //   if (Array.isArray(sc)) {
   //     proxyRes.headers['set-cookie'] = sc.map(sc => {
@@ -41,7 +33,7 @@ var proxyOptions = {
   //         .join('; ')
   //     });
   //   }
-  // }
+  // })
 }
 // function relayRequestHeaders(proxyReq, req) {
 //   Object.keys(req.headers).forEach(function (key) {

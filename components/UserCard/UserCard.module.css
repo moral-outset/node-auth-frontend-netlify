@@ -5,12 +5,12 @@
   border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 
-  margin: 5rem auto;
-  width: 90%;
+  margin: 1%;
+  width: fit-content;
   max-width: 40rem;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -21,6 +21,10 @@
   word-break: break-all;
   /* Instead use this non-standard one: */
   word-break: break-word;
+}
+
+.itemContainer:hover {
+  cursor: pointer;
 }
 
 .bio {
@@ -34,4 +38,6 @@
     opacity: 0.6;
     cursor: text;
 }
+
+
 

@@ -1,29 +1,29 @@
 import Image from "next/image";
-import classes from "./UserCard.module.css";
-import Link from 'next/link'
+import classes from "./User.module.css";
 
-function UserCard(props) {
+function User(props) {
 
   const myLoader = ({ src }) => {
     return `https://identicon-api.herokuapp.com/${props.userInfo._id}/1000?format=png`;
   };
 
   return (
-  <Link href={`/users/${props.userInfo._id}`} passHref>
     <div className={classes.itemContainer}>
       <Image
         className={classes.avatar}
         loader={myLoader}
         src={`https://identicon-api.herokuapp.com/${props.userInfo._id}/1000?format=png`}
         alt="profileimage"
-        width={64}
-        height={64}
+        width={128}
+        height={128}
       />
-      <h1>{props.userInfo.name}</h1>      
+      <h1>{props.userInfo.name}</h1>
+      <div className={classes.bio}>
+        <p spellCheck={false}>{props.userInfo.bio}</p>
+      </div>
+      
     </div>
-  </Link>
-    
   );
 }
 
-export default UserCard;
+export default User;

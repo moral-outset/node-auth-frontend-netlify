@@ -1,11 +1,9 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import DefaultPage from '../components/default/default';
 
 export default function Home() {
   return (
     <>
-      <div>Hellow World!</div>
+      <DefaultPage/>
     </>
   );
 }

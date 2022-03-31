@@ -15,3 +15,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+[contenteditable] {
+  outline: 0px solid transparent;
+}
