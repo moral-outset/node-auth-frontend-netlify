@@ -1,7 +1,12 @@
 import UserNavigation from "../../../components/layout/UserNavBar";
 import User from "../../../components/User/User";
+import { useRouter } from 'next/router';
 
 function UserPage(props) {
+  const router = useRouter()
+  if (router.isFallback) {
+    return <div>Loading...</div>
+}
   return (
     <>
       <UserNavigation></UserNavigation>
@@ -14,10 +19,9 @@ function UserPage(props) {
 export async function getStaticPaths() {
   const users = await fetch("https://node-auth-site-netlify.herokuapp.com/users", { method: "GET" });
   const userInfos = await users.json();
-  console.log(userInfos);
 
   return {
-    fallback: false,
+    fallback: true,
     paths: userInfos.map((userInfo) => ({
       params: { userId: userInfo._id.toString() },
     })),
@@ -44,7 +48,6 @@ export async function getStaticProps(context) {
     props: {
       selectedUser,
     },
-    revalidate: 1,
   };
 }
 export default UserPage;
