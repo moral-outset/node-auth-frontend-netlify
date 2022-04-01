@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import UserCardList from "../../components/UserCardList/UserCardList";
 import UsersNavigation from "../../components/layout/UsersNavBar";
 
