@@ -6,7 +6,8 @@ function ProfileNavigation() {
 
   async function logoutHandler() {
     const cookie = document.cookie;
-    const response = await fetch('http://localhost:5000/logout', {
+    console.log(cookie)
+    const response = await fetch('/api/logout', {
         method: 'POST',
         // body: JSON.stringify({"bio":newBioText}),
         mode: 'cors',

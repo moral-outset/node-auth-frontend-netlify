@@ -7,6 +7,7 @@ function LoginPage() {
   const router = useRouter();
 
   async function loginHandler(loginData) {
+    // /api/login
     const response = await fetch("/api/login", {
       method: "POST",
       body: JSON.stringify(loginData),

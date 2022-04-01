@@ -12,7 +12,7 @@ function UserPage(props) {
 
 //Must be used with getStaticProps to define for which values of [meetupId] are pre-rendered pages
 export async function getStaticPaths() {
-  const users = await fetch("http://localhost:5000/users", { method: "GET" });
+  const users = await fetch("https://node-auth-site-netlify.herokuapp.com/users", { method: "GET" });
   const userInfos = await users.json();
   console.log(userInfos);
 
@@ -30,7 +30,7 @@ export async function getStaticProps(context) {
   //to access the url value in [meetupId]
   const userId = context.params.userId;
 
-  const users = await fetch("http://localhost:5000/users", { method: "GET" });
+  const users = await fetch("https://node-auth-site-netlify.herokuapp.com/users", { method: "GET" });
   const userInfo = await users.json();
   let selectedUser;
   for (let i = 0; i < userInfo.length; i++) {

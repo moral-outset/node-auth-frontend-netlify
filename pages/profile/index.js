@@ -15,7 +15,7 @@ const ProfilePage = (props) => {
 export async function getServerSideProps(context) {
 
   // fetch data from mongoDB, dont need API since this runs on server side and can reduce unneeded calls
-  const response = await fetch("http://localhost:5000/profile", {
+  const response = await fetch("https://node-auth-site-netlify.herokuapp.com/profile", {
     method: "GET",
     headers: {
       Cookie: context.req.headers.cookie,

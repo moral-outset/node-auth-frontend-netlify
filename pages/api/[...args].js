@@ -4,16 +4,11 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 //Promisify request such that it will return a resolve/reject; this will allow api to resolve
 //Recreate [HPM] Upgrading to Websocket problem and figure out exactly how HPM works :)
 
-//this is needed!!
-export const config = {
-    api: {
-      bodyParser: false,
-    },
-  }
+
 var proxyOptions = {
-  target: 'http://localhost:5000',
+  target: 'https://node-auth-site-netlify.herokuapp.com',
   pathRewrite: {['^/api'] : ''},
-  changeOrigin: false,
+  changeOrigin: true,
   ws: false,
   secure: false,
   cookieDomainRewrite: 'localhost',
@@ -45,4 +40,10 @@ var proxyOptions = {
 //    res.append(key, proxyRes.headers[key]);
 //  });
 // }
+//this is needed!!
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
 export default createProxyMiddleware(proxyOptions);

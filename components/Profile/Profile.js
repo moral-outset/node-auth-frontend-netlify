@@ -8,7 +8,7 @@ function Profile(props) {
   async function blurHandler() {
     const newBioText = document.getElementById('bio').innerHTML;
     const cookie = document.cookie;
-    const response = await fetch('http://localhost:5000/profile/bio', {
+    const response = await fetch('/api/profile/bio', {
         method: 'POST',
         body: JSON.stringify({"bio":newBioText}),
         mode: 'cors',
