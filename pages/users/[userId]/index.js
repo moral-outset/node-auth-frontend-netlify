@@ -44,6 +44,7 @@ export async function getStaticProps(context) {
     props: {
       selectedUser,
     },
+    revalidate: 1,
   };
 }
 export default UserPage;
