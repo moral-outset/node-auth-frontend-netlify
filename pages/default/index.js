@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultPage from '../../components/default/default';
+import DefaultPage from '../../components/Default/Default';
 
 function index() {
   return (

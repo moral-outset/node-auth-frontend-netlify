@@ -1,5 +1,5 @@
 import React from "react";
-import LoginForm from "../../components/loginregister/login/Login";
+import LoginForm from "../../components/LoginRegister/Login/Login";
 import CardCenter from "../../components/layout/CardCenter";
 import { useRouter } from "next/router";
 

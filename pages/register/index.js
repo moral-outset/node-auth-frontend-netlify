@@ -1,6 +1,6 @@
 import React from "react";
 import CardCenter from "../../components/layout/CardCenter";
-import RegisterForm from "../../components/loginregister/register/register";
+import RegisterForm from "../../components/LoginRegister/Register/Register";
 import { useRouter } from "next/router";
 
 const RegisterPage = () => {
