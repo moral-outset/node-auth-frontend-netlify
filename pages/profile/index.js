@@ -13,15 +13,25 @@ const ProfilePage = (props) => {
 };
 
 export async function getServerSideProps(context) {
-  //upon router.push() from
+
   // fetch data from mongoDB, dont need API since this runs on server side and can reduce unneeded calls
   const response = await fetch("http://localhost:5000/profile", {
     method: "GET",
     headers: {
       Cookie: context.req.headers.cookie,
     },
-  });
+  })
+
   const userInfo = await response.json();
+  //if already not logged in yet, redirect to '/'
+  if (response.status==400) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/'
+      }
+    }
+  }  
 
   return {
     props: {
